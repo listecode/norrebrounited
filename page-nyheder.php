@@ -13,10 +13,12 @@ get_header(); ?>
 
  <template>
     <article>
-    
+		<h1>Test overskrift</h1>
          <img src="" alt="">
     </article>
 </template>
+
+<section id="ret-oversigt"></section>
 
 
 <div id="primary" class="content-area clr">
@@ -44,13 +46,16 @@ get_header(); ?>
     function visRetter() {
         let liste = document.querySelector("#ret-oversigt");
         let skabelon = document.querySelector("template");
-        liste.innerHTML = "";
-        sider.forEach(side => {
+        // liste.innerHTML = "";
+        // sider.forEach(side => {
             const klon = skabelon.cloneNode(true).content;
             klon.querySelector("img").src = side.billede.guid;
+
+			klon.querySelector("article").addEventListener("click", ()=> {location.href = side.link; })
+
             liste.appendChild(klon);
-            })
-        }
+            }
+        
 
               getJson();     
 </script>

@@ -1,58 +1,83 @@
 <?php
 /**
- * The template for displaying the footer
+ * The template for displaying the footer.
  *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package WordPress
- * @subpackage Twenty_Nineteen
- * @since Twenty Nineteen 1.0
+ * @package OceanWP WordPress theme
  */
 
 ?>
 
-	</div><!-- #content -->
+	</main><!-- #main -->
 
-	<footer id="colophon" class="site-footer">
-		<?php get_template_part( 'template-parts/footer/footer', 'widgets' ); ?>
-		<div class="site-info">
-			<!-- <?php $blog_info = get_bloginfo( 'name' ); ?>
-			<?php if ( ! empty( $blog_info ) ) : ?>
-				<a class="site-name" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>,
-			<?php endif; ?> -->
-			<p>Gruppe 12</p>
-			<!-- <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'twentynineteen' ) ); ?>" class="imprint">
-				<?php
-				/* translators: %s: WordPress. */
-				printf( __( 'Proudly powered by %s.', 'twentynineteen' ), 'WordPress' );
-				?>
-			</a> -->
-			<?php
-			if ( function_exists( 'the_privacy_policy_link' ) ) {
-				the_privacy_policy_link( '', '<span role="separator" aria-hidden="true"></span>' );
-			}
-			?>
-			<?php if ( has_nav_menu( 'footer' ) ) : ?>
-				<nav class="footer-navigation" aria-label="<?php esc_attr_e( 'Footer Menu', 'twentynineteen' ); ?>">
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'footer',
-							'menu_class'     => 'footer-menu',
-							'depth'          => 1,
-						)
-					);
-					?>
-				</nav><!-- .footer-navigation -->
-			<?php endif; ?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+	<?php do_action( 'ocean_after_main' ); ?>
 
-</div><!-- #page -->
+	<?php do_action( 'ocean_before_footer' ); ?>
+
+	<?php
+	// Elementor `footer` location.
+	if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'footer' ) ) {
+		?>
+
+		<?php do_action( 'ocean_footer' ); ?>
+
+	<?php } ?>
+
+	<?php do_action( 'ocean_after_footer' ); ?>
+
+</div><!-- #wrap -->
+
+<?php do_action( 'ocean_after_wrap' ); ?>
+
+</div><!-- #outer-wrap -->
+
+<?php do_action( 'ocean_after_outer_wrap' ); ?>
+
+<?php
+// If is not sticky footer.
+if ( ! class_exists( 'Ocean_Sticky_Footer' ) ) {
+	get_template_part( 'partials/scroll-top' );
+}
+?>
+
+<?php
+// Search overlay style.
+if ( 'overlay' === oceanwp_menu_search_style() ) {
+	get_template_part( 'partials/header/search-overlay' );
+}
+?>
+
+<?php
+// If sidebar mobile menu style.
+if ( 'sidebar' === oceanwp_mobile_menu_style() ) {
+
+	// Mobile panel close button.
+	if ( get_theme_mod( 'ocean_mobile_menu_close_btn', true ) ) {
+		get_template_part( 'partials/mobile/mobile-sidr-close' );
+	}
+	?>
+
+	<?php
+	// Mobile Menu (if defined).
+	get_template_part( 'partials/mobile/mobile-nav' );
+	?>
+
+	<?php
+	// Mobile search form.
+	if ( get_theme_mod( 'ocean_mobile_menu_search', true ) ) {
+		ob_start();
+		get_template_part( 'partials/mobile/mobile-search' );
+		echo ob_get_clean();
+	}
+}
+?>
+
+<?php
+// If full screen mobile menu style.
+if ( 'fullscreen' === oceanwp_mobile_menu_style() ) {
+	get_template_part( 'partials/mobile/mobile-fullscreen' );
+}
+?>
 
 <?php wp_footer(); ?>
-
 </body>
 </html>

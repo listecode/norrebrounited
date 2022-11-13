@@ -6,10 +6,14 @@ Description:  ocean child theme
 Author:      shl
  */
 
-main {
+#farve {
   background-color: red;
 }
 
-#farve {
+body {
+  color: black;
+}
+
+main {
   background-color: red;
 }
