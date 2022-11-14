@@ -7,9 +7,20 @@ Author:      shl
  */
 
 main {
-  background-color: red;
+  background-color: darkgreen;
 }
 
-#farve {
-  background-color: red;
+img {
+  width: 200px;
+  height: 200px;
+}
+
+#nyhed-oversigt {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+header {
+  background-color: darkgreen;
 }

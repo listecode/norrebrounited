@@ -13,7 +13,7 @@ get_header(); ?>
 
 	<?php do_action( 'ocean_before_content_wrap' ); ?>
 
-	<div id="content-wrap farve" class="container clr farve">
+	<div id="content-wrap" class="container clr">
 
 		<?php do_action( 'ocean_before_primary' ); ?>
 
@@ -21,7 +21,7 @@ get_header(); ?>
 
 			<?php do_action( 'ocean_before_content' ); ?>
 
-			<div id="content farve" class="site-content clr farve">
+			<div id="content" class="site-content clr">
 
 				<?php do_action( 'ocean_before_content_inner' ); ?>
 

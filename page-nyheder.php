@@ -13,55 +13,57 @@ get_header(); ?>
 
  <template>
     <article>
-		<h1>Test overskrift</h1>
+		<h1></h1>
          <img src="" alt="">
+		 <p></p>
     </article>
 </template>
 
-<section id="ret-oversigt"></section>
+<section id="nyhed-oversigt"></section>
 
 
-<div id="primary" class="content-area clr">
+
+
+	<!-- <div id="content" class="site-content clr"> -->
 
 <script>
-    let sider;
+    let nyheder;
 
-    let filterRet = "alle";
 
-    const dburl = "https://www.listeportfolio.dk/kea/09_cms/norrebrounited/wp-json/wp/v2/side";
+
+    const dburl = "https://www.listeportfolio.dk/kea/09_cms/norrebrounited/wp-json/wp/v2/nyhed";
 
     async function getJson() {
-    const data = await fetch (dburl);
-
-
-    sider = await data.json();
-
-    visRetter();
+    const data = await fetch(dburl);
+	nyheder = await data.json();
+	visSider();
 
 }
 
 
 
    
-    function visRetter() {
-        let liste = document.querySelector("#ret-oversigt");
+    function visSider() {
+        let liste = document.querySelector("#nyhed-oversigt");
         let skabelon = document.querySelector("template");
         // liste.innerHTML = "";
-        // sider.forEach(side => {
+        nyheder.forEach(nyhed => {
             const klon = skabelon.cloneNode(true).content;
-            klon.querySelector("img").src = side.billede.guid;
-
-			klon.querySelector("article").addEventListener("click", ()=> {location.href = side.link; })
+			klon.querySelector("h1").textContent = nyhed.title.rendered;
+            klon.querySelector("img").src = nyhed.billede.guid;
+			klon.querySelector("p").textContent = nyhed.beskrivelse;
+			klon.querySelector("article").addEventListener("click", ()=> {location.href = nyhed.link; })
 
             liste.appendChild(klon);
-            }
+            })
+		}
         
 
               getJson();     
 </script>
 	
 
-	</div>
+	<!-- </div> -->
 <?php
 get_footer();
 
