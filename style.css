@@ -6,21 +6,350 @@ Description:  ocean child theme
 Author:      shl
  */
 
+nav {
+}
+
+#footer-widgets {
+  display: none;
+}
+
+#footer-bottom {
+  display: none;
+}
+
+header {
+  background-color: white;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: center;
+  justify-content: center;
+  /* margin-right: 10rem;
+  margin-left: 10rem; */
+  /* margin-bottom: 2rem;
+  margin-top: 2rem; */
+}
+.facelogo {
+  width: 3rem;
+}
+
+.instalogo {
+  width: 3rem;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  place-self: end;
+  gap: 1rem;
+  margin-bottom: 8rem;
+}
+
+.footertekst {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.nbulogobund {
+  display: flex;
+  flex-direction: column;
+  place-self: end start;
+  margin-bottom: 6rem;
+}
+.nbufooterlogo {
+  width: 8rem;
+}
+
+span,
+p,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: rockwell, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+a:hover {
+  color: black;
+}
+
 main {
   background-color: darkgreen;
 }
 
-img {
-  width: 200px;
-  height: 200px;
+#header-farve {
+  max-height: 200px;
+}
+.page-header {
+  background-color: white;
 }
 
-#nyhed-oversigt {
+.nyhedimg {
+  width: 20%;
+  border-radius: 15%;
+}
+
+/* #nyhed-oversigt {
   display: flex;
   justify-content: space-between;
   margin: 20px;
+} */
+
+/* .page-header {
+  background-color: white;
+  background-image: url(nbu-logo-medtekst.png);
+  background-repeat: no-repeat;
+} */
+
+.custom-logo {
+  width: 100px;
+  height: 100px;
 }
 
-header {
+.forsideflex {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+
+/* Forside */
+
+.forsidebillede {
+  width: 75%;
+  height: 100%;
+}
+
+.tilmeldcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+}
+
+.tilmeldcirkel {
+  display: flex;
+  background-color: darkorange;
+  color: darkgreen;
+  border-radius: 50%;
+  height: 10rem;
+  width: 10rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* nyheder på forsiden */
+
+#nyheds-oversigt {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: darkgreen;
+}
+
+.nyhed {
+  cursor: pointer;
+}
+
+.forsidenyheder {
+  margin: 1rem;
+}
+
+.nyheder-banner {
+  color: white;
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 5rem;
+}
+
+/* nyhed singleview */
+
+.nyhedsingle {
+  background-color: white;
+}
+
+.singleover {
+  color: darkgreen;
+  text-align: center;
+}
+
+.nyhedbilledesingle {
+  display: flex;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.langnyhedtekst {
+  display: flex;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* hold oversigt på forsiden */
+
+.h1flex {
+  display: flex;
+  justify-content: space-between;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.fodbold-h1,
+.hondbold-h1 {
+  color: white;
+}
+
+.viderudvikling {
+  width: 75%;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* nyheder siden */
+
+/* .nyhedimg {
+  width: 80%;
+  height: 100%;
+} */
+.nyhed-side {
+  display: flex;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.titelogtekst {
+  width: 75%;
+}
+#nyhed-oversigt {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: darkgreen;
+}
+
+.nyhedimg {
+  width: 100%;
+}
+
+.nyhedtekst {
+  color: white;
+}
+
+/* hold filtrering side */
+.holdtekst {
+  color: white;
+}
+
+@media (orientation: landscape) and (min-width: 500px) {
+  .tilmeldcirkel {
+    font-size: 2rem;
+  }
+
+  #nyheds-oversigt {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (orientation: landscape) and (min-width: 1000px) {
+  .forsidebillede {
+    width: 50%;
+  }
+
+  .viderudvikling {
+    width: 60%;
+    max-width: 1000px;
+  }
+
+  .tilmeldcontainer {
+    width: 25%;
+  }
+  #nyheds-oversigt {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tilmeldcirkel {
+    width: 20rem;
+    height: 20rem;
+  }
+
+  /* .nyhedimg {
+    width: 50%;
+    height: 100%;
+  } */
+  .nyhed-side {
+    display: flex;
+  }
+  /* .titelogtekst {
+    width: 75%;
+  } */
+  #nyhed-oversigt {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: darkgreen;
+  }
+
+  /* nyhed single view desktop */
+
+  .nyhedsingle {
+    background-color: white;
+  }
+
+  .singleover {
+    color: darkgreen;
+    text-align: center;
+  }
+
+  .nyhedbilledesingle {
+    display: flex;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .langnyhedtekst {
+    display: flex;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10rem;
+    margin-left: 10rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
 }

@@ -11,13 +11,20 @@
 
 get_header(); ?>
 
- <template>
-    <article>
-		<h1></h1>
-         <img src="" alt="">
-		 <p></p>
+ <template class="tempgrid">
+   
+    <article class="nyhed-side">
+         <img class="nyhedimg" src="" alt="">
+       <!-- <div class="titelogtekst">
+		    <h1 class="nyhedtekst"></h1>
+        	 <p class="nyhedtekst"></p>
+          </div>  -->
     </article>
+
 </template>
+
+  
+  
 
 <section id="nyhed-oversigt"></section>
 
@@ -45,14 +52,15 @@ get_header(); ?>
    
     function visSider() {
         let liste = document.querySelector("#nyhed-oversigt");
-        let skabelon = document.querySelector("template");
+        let skabelon = document.querySelector(".tempgrid");
         // liste.innerHTML = "";
         nyheder.forEach(nyhed => {
             const klon = skabelon.cloneNode(true).content;
-			klon.querySelector("h1").textContent = nyhed.title.rendered;
-            klon.querySelector("img").src = nyhed.billede.guid;
-			klon.querySelector("p").textContent = nyhed.beskrivelse;
-			klon.querySelector("article").addEventListener("click", ()=> {location.href = nyhed.link; })
+            // let nyhed = nyheder[0];
+			// klon.querySelector("h1").textContent = nyhed.title.rendered;
+            klon.querySelector(".nyhedimg").src = nyhed.billede.guid;
+			// klon.querySelector("p").textContent = nyhed.beskrivelse;
+			klon.querySelector(".nyhed-side").addEventListener("click", ()=> {location.href = nyhed.link; })
 
             liste.appendChild(klon);
             })

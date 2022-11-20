@@ -11,47 +11,130 @@
 
 get_header(); ?>
 
-	<?php do_action( 'ocean_before_content_wrap' ); ?>
+ <template>
 
-	<div id="content-wrap" class="container clr">
+	<article class="forsidenyheder" id="header">
+		<img class="nyhed" src="" alt="">
+		
+		
 
-		<?php do_action( 'ocean_before_primary' ); ?>
+	</article>
 
-		<div id="primary" class="content-area clr">
+    <!-- <article class="forsideflex">
+		<h1></h1>
+         <img class="forsidebillede" src="" alt="">
+		 <div class="tilmeldcontainer">
+		 <p class="tilmeldcirkel"></p>
+		</div>
+    </article> -->
+	
+</template>
 
-			<?php do_action( 'ocean_before_content' ); ?>
+<!-- <article class="forsidenyheder">
+		<img class="nyhed" src="" alt="">
+		
+		
 
-			<div id="content" class="site-content clr">
+	</article> -->
 
-				<?php do_action( 'ocean_before_content_inner' ); ?>
 
-				<?php
-				// Elementor `single` location.
-				if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'single' ) ) {
+    <article class="forsideflex">
+		<h1></h1>
+         <img class="forsidebillede" src="" alt="">
+		 <div class="tilmeldcontainer">
+		 <a href="https://www.listeportfolio.dk/kea/09_cms/norrebrounited/tilmeld-nu/" class="tilmeldcirkel"></a>
+		</div>
+    </article> 
 
-					// Start loop.
-					while ( have_posts() ) :
-						the_post();
+<section id="forside-oversigt"></section>
+<h1 class="nyheder-banner">Nyheder</h1>
+<section id="nyheds-oversigt"></section>
+<!-- <div class="h1flex">
+<h1 class="fodbold-h1">Fodbold</h1>
+<h1 class="hondbold-h1">Håndbold</h1>
+</div> -->
+<section id="hold"></section>
+<section class="sponsor">
+	<img class="viderudvikling" src="<?php echo get_stylesheet_directory_uri() ?>/sponsorerer.webp" alt="hold carousel og sponsorere">
+</section>
 
-						get_template_part( 'partials/page/layout' );
 
-					endwhile;
 
-				}
-				?>
+	<!-- <div id="content" class="site-content clr"> -->
 
-				<?php do_action( 'ocean_after_content_inner' ); ?>
+<script>
+    let forsider;
 
-			</div><!-- #content -->
 
-			<?php do_action( 'ocean_after_content' ); ?>
 
-		</div><!-- #primary -->
+    const dburl = "https://www.listeportfolio.dk/kea/09_cms/norrebrounited/wp-json/wp/v2/forside";
 
-		<?php do_action( 'ocean_after_primary' ); ?>
+    async function getJson() {
+    const data = await fetch(dburl);
+	forsider = await data.json();
+	visSider();
 
-	</div><!-- #content-wrap -->
+}
 
-	<?php do_action( 'ocean_after_content_wrap' ); ?>
 
-<?php get_footer(); ?>
+
+   
+    function visSider() {
+        let liste = document.querySelector("#forside-oversigt");
+        // let skabelon = document.querySelector("template");
+        // liste.innerHTML = "";
+        // forsider.forEach(forside => {
+			let forside = forsider[0];
+            // const klon = skabelon.cloneNode(true).content;
+            document.querySelector(".forsidebillede").src = forside.billede.guid;
+			document.querySelector(".tilmeldcirkel").textContent = forside.tekst;
+			document.querySelector(".tilmeldcirkel").addEventListener("click", ()=> {location.href = forside.link; })
+			// liste.appendChild(klon);
+            // })
+		}
+        
+
+              getJson();     
+
+
+
+
+
+	let forsidenyheder;
+
+	const nyhedsdburl = "https://www.listeportfolio.dk/kea/09_cms/norrebrounited/wp-json/wp/v2/nyhed";
+
+    async function getJson1() {
+    const nyhedsdata = await fetch(nyhedsdburl);
+	forsidenyheder = await nyhedsdata.json();
+	visForsideNyheder();
+
+}
+
+
+
+   
+    function visForsideNyheder() {
+        let liste = document.querySelector("#nyheds-oversigt");
+        let skabelon = document.querySelector("template");
+        // liste.innerHTML = "";
+        forsidenyheder.forEach(nyhed => {
+			// let nyhed = forsidenyheder[0];
+            const klon = skabelon.cloneNode(true).content;
+            klon.querySelector(".nyhed").src = nyhed.billede.guid;  
+			// klon.querySelector("p").textContent = nyhed.tekst;
+			klon.querySelector(".forsidenyheder").addEventListener("click", ()=> {location.href = nyhed.link; })
+            liste.appendChild(klon);
+			  })
+		}
+      
+		getJson1();
+          
+</script>
+	
+
+	<!-- </div> -->
+<?php
+get_footer();
+
+

@@ -9,6 +9,27 @@
 
 	</main><!-- #main -->
 
+<!-- <img class="footerlogo" src="nbu-logo.jpg" alt="nbu-logo"> -->
+<br>
+<div class="footer">
+<div class="nbulogobund">
+<a href=#header><img class="nbufooterlogo" src="<?php echo get_stylesheet_directory_uri() ?>/nbu-logo.jpg" alt="nbu-logo"></a>
+</div>
+<div>
+<p class="footertekst">Nørrebro United</p>
+<p class="footertekst">Tlf nr. 60 79 61 40 </p>
+<p class="footertekst">kontor@nbunited.dk </p>
+<p class="footertekst">Husumgade 44, baghuset - 2200 København N</p>
+<p class="footertekst">cvr. 32435327 - Bank reg nr. 1551 konto nr. 4190286185</p>
+</div>
+<div class="socials">
+	<a href="www.facebook.dk"><img class="facelogo" src="<?php echo get_stylesheet_directory_uri() ?>/facebook-logo.svg" alt="Facebook-logo"></a>
+	<a href="www.instagram.dk"><img class="instalogo" src="<?php echo get_stylesheet_directory_uri() ?>/instagram-logo.svg" alt="Instagram-logo"></a>
+	<!-- <img src="<?php echo get_stylesheet_directory_uri() ?>/nbu-logo.jpg" alt="billede"> -->
+
+</div>
+</div>
+
 	<?php do_action( 'ocean_after_main' ); ?>
 
 	<?php do_action( 'ocean_before_footer' ); ?>
@@ -77,6 +98,8 @@ if ( 'fullscreen' === oceanwp_mobile_menu_style() ) {
 	get_template_part( 'partials/mobile/mobile-fullscreen' );
 }
 ?>
+
+
 
 <?php wp_footer(); ?>
 </body>

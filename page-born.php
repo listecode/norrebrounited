@@ -14,7 +14,7 @@ get_header(); ?>
  <template>
     <article>
 		<h1></h1>
-         <img src="" alt="">
+         <img class="bornebillede" src="" alt="">
 		 <p></p>
     </article>
 </template>
@@ -50,6 +50,7 @@ get_header(); ?>
         // liste.innerHTML = "";
         bornehold.forEach(bornehold => {
             const klon = skabelon.cloneNode(true).content;
+            klon.querySelector(".bornebillede").src = bornehold.billede.guid;
 			klon.querySelector("h1").textContent = bornehold.title.rendered;
 			klon.querySelector("p").textContent = bornehold.beskrivelse;
 			klon.querySelector("article").addEventListener("click", ()=> {location.href = bornehold.link; })
