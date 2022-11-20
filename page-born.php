@@ -12,9 +12,9 @@
 get_header(); ?>
 
  <template>
-    <article>
-		<h1></h1>
-         <img class="bornebillede" src="" alt="">
+    <article class="holdarticle">
+		<h1 class="bornh1"></h1>
+         <img class="holdbillede" src="" alt="">
 		 <p></p>
     </article>
 </template>
@@ -50,10 +50,10 @@ get_header(); ?>
         // liste.innerHTML = "";
         bornehold.forEach(bornehold => {
             const klon = skabelon.cloneNode(true).content;
-            klon.querySelector(".bornebillede").src = bornehold.billede.guid;
+            klon.querySelector(".holdbillede").src = bornehold.billede.guid;
 			klon.querySelector("h1").textContent = bornehold.title.rendered;
 			klon.querySelector("p").textContent = bornehold.beskrivelse;
-			klon.querySelector("article").addEventListener("click", ()=> {location.href = bornehold.link; })
+			klon.querySelector(".holdarticle").addEventListener("click", ()=> {location.href = bornehold.link; })
             liste.appendChild(klon);
             })
 		}
