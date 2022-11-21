@@ -15,7 +15,7 @@ get_header(); ?>
     <article class="holdarticle">
 		<h1 class="bornh1"></h1>
          <img class="holdbillede" src="" alt="">
-		 <p></p>
+		 <p class="tekst"></p>
     </article>
 </template>
 
@@ -52,7 +52,7 @@ get_header(); ?>
             const klon = skabelon.cloneNode(true).content;
             klon.querySelector(".holdbillede").src = bornehold.billede.guid;
 			klon.querySelector("h1").textContent = bornehold.title.rendered;
-			klon.querySelector("p").textContent = bornehold.beskrivelse;
+			// klon.querySelector("tekst").textContent = bornehold.text;
 			klon.querySelector(".holdarticle").addEventListener("click", ()=> {location.href = bornehold.link; })
             liste.appendChild(klon);
             })

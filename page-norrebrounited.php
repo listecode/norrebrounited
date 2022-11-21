@@ -55,7 +55,7 @@ get_header(); ?>
 </div> -->
 <section id="hold"></section>
 <section class="sponsor">
-	<img class="viderudvikling" src="<?php echo get_stylesheet_directory_uri() ?>/sponsorerer.webp" alt="hold carousel og sponsorere">
+	<img class="viderudvikling" src="<?php echo get_stylesheet_directory_uri() ?>/sponsorerer.lille.webp" alt="hold carousel og sponsorere">
 </section>
 
 

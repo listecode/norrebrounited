@@ -13,6 +13,7 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
     <link rel="stylesheet" href="https://use.typekit.net/fvo6ygi.css">
 	<?php wp_head(); ?>
+	
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/style.css ">
 	<!-- indsæt vores stylesheet her - skrevet af silas -->
 </head>
